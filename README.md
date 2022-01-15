@@ -1,8 +1,8 @@
 # How to run
 
-## git clone
-## yarn install / npm install;
+### git clone
+### yarn install / npm install;
 ### cd ios -> pod install
-## yarn run ios / npx react-native run-ios;
+### yarn run ios / npx react-native run-ios;
 
 
