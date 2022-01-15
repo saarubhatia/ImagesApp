@@ -7,15 +7,15 @@
  *
  * @format
  */
-
+import 'react-native-gesture-handler';
 import React from 'react';
 
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import {combineReducers, createStore, applyMiddleware} from 'redux';
 import images from './src/store/reducers/images';
-
-import HomeScreen from './src/screens/HomeScreen';
+import {NavigationContainer} from '@react-navigation/native';
+import DrawerNavigation from './src/navigation/DrawerNavigation';
 
 const App = () => {
   const rootReducer = combineReducers({
@@ -25,7 +25,9 @@ const App = () => {
   const store = createStore(rootReducer, applyMiddleware(thunk));
   return (
     <Provider store={store}>
-      <HomeScreen />
+      <NavigationContainer>
+        <DrawerNavigation />
+      </NavigationContainer>
     </Provider>
   );
 };

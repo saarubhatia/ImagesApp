@@ -11,17 +11,17 @@ import * as imagesActions from '../store/actions/images';
 import {useSelector, useDispatch} from 'react-redux';
 import SearchInput from '../components/SearchInput';
 
-const HomeScreen = (props: {navigation: any}) => {
+const StickersScreen = props => {
   const {navigation} = props;
   const dispatch = useDispatch();
-  const images = useSelector(state => state.images.images);
+  const stickers = useSelector(state => state.images.stickers);
   const [value, setValue] = useState<string>('');
   const [page, setPage] = useState<number>(0);
 
-  const fetchAllImages = useCallback(
+  const fetchAllStickers = useCallback(
     async p => {
       try {
-        await dispatch(imagesActions.fetchImages(p));
+        await dispatch(imagesActions.fetchStickers(p));
       } catch (err) {
         console.log(err);
       }
@@ -30,8 +30,8 @@ const HomeScreen = (props: {navigation: any}) => {
   );
 
   useEffect(() => {
-    fetchAllImages(page);
-  }, [fetchAllImages, page]);
+    fetchAllStickers(page);
+  }, [fetchAllStickers, page]);
 
   const loadMoreRandomData = () => {
     setPage(page + 20);
@@ -54,7 +54,7 @@ const HomeScreen = (props: {navigation: any}) => {
     );
   };
 
-  if (!images[0]) {
+  if (!stickers[0]) {
     return (
       <SafeAreaView style={styles.screen}>
         <ActivityIndicator size="large" color="orange" />
@@ -64,7 +64,7 @@ const HomeScreen = (props: {navigation: any}) => {
 
   const handleSearch = async () => {
     try {
-      await dispatch(imagesActions.searchImages(value, page));
+      await dispatch(imagesActions.searchStickers(value, page));
     } catch (err) {
       console.log(err);
     }
@@ -79,7 +79,7 @@ const HomeScreen = (props: {navigation: any}) => {
         disabled={value === ''}
       />
       <FlatList
-        data={images}
+        data={stickers}
         keyExtractor={(item, index) => item.id}
         numColumns={3}
         renderItem={renderData}
@@ -96,32 +96,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
   },
   bgImg: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    top: 0,
     width: '100%',
     height: '100%',
   },
   gridItem: {
     backgroundColor: '#e1e4e8',
-    width: 125,
+    width: 120,
     height: 120,
   },
-  searchContainer: {
-    flexDirection: 'row',
-
-    justifyContent: 'center',
-    width: '100%',
-    alignItems: 'center',
-    margin: 8,
-  },
-  searchButton: {
-    height: 45,
-    width: 60,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#e1e4e8',
-    // borderRadius: 20,
-  },
 });
-export default HomeScreen;
+export default StickersScreen;
