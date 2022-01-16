@@ -15,7 +15,6 @@ export const fetchImages = (offsetNumber: any) => {
   return async (
     dispatch: (arg0: {type: string; respData: any; offset: any}) => void,
   ) => {
-    // any async code you want!
     try {
       const response = await fetch(
         `${BASE_URL}?api_key=${API_KEY}&limit=20&offset=${offsetNumber}`,
@@ -32,7 +31,6 @@ export const fetchImages = (offsetNumber: any) => {
         offset: offsetNumber,
       });
     } catch (err) {
-      // send to custom analytics server
       throw err;
     }
   };
@@ -42,7 +40,6 @@ export const searchImages = (queryString: string, offsetNumber: number) => {
   return async (
     dispatch: (arg0: {type: string; respData: any; offset: number}) => void,
   ) => {
-    // any async code you want!
     try {
       const response = await fetch(
         `${SEARCH_URL}?api_key=${API_KEY}&q=${queryString}&limit=20&offset=${offsetNumber}`,
@@ -59,7 +56,6 @@ export const searchImages = (queryString: string, offsetNumber: number) => {
         offset: offsetNumber,
       });
     } catch (err) {
-      // send to custom analytics server
       throw err;
     }
   };
@@ -69,7 +65,6 @@ export const fetchStickers = (offsetNumber: any) => {
   return async (
     dispatch: (arg0: {type: string; respData: any; offset: any}) => void,
   ) => {
-    // any async code you want!
     try {
       const response = await fetch(
         `${STICKER_BASE_URL}?api_key=${API_KEY}&limit=20&offset=${offsetNumber}`,
@@ -86,7 +81,6 @@ export const fetchStickers = (offsetNumber: any) => {
         offset: offsetNumber,
       });
     } catch (err) {
-      // send to custom analytics server
       throw err;
     }
   };
@@ -96,7 +90,6 @@ export const searchStickers = (queryString: string, offsetNumber: number) => {
   return async (
     dispatch: (arg0: {type: string; respData: any; offset: number}) => void,
   ) => {
-    // any async code you want!
     try {
       const response = await fetch(
         `${STICKER_SEARCH_URL}?api_key=${API_KEY}&q=${queryString}&limit=20&offset=${offsetNumber}`,
@@ -113,7 +106,6 @@ export const searchStickers = (queryString: string, offsetNumber: number) => {
         offset: offsetNumber,
       });
     } catch (err) {
-      // send to custom analytics server
       throw err;
     }
   };

@@ -8,7 +8,7 @@ import {
   Text,
 } from 'react-native';
 
-const SearchInput = props => {
+const SearchInput = (props: {onPress: Function; disabled: boolean}) => {
   const {onPress, disabled} = props;
   return (
     <>

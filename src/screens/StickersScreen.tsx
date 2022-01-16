@@ -11,7 +11,7 @@ import * as imagesActions from '../store/actions/images';
 import {useSelector, useDispatch} from 'react-redux';
 import SearchInput from '../components/SearchInput';
 
-const StickersScreen = props => {
+const StickersScreen = (props: {navigation: any}) => {
   const {navigation} = props;
   const dispatch = useDispatch();
   const stickers = useSelector(state => state.images.stickers);

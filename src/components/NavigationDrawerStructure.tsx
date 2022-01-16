@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, TouchableOpacity, Image} from 'react-native';
 
-const NavigationDrawerStructure = props => {
+const NavigationDrawerStructure = (props: {navigation: any}) => {
   const {navigation} = props;
 
   const toggleDrawer = () => {

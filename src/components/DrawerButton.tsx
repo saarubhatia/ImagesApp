@@ -1,9 +1,26 @@
 import React from 'react';
-import {StyleSheet, Text, Image} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  Image,
+  GestureResponderEvent,
+  ImageSourcePropType,
+} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const DrawerButton = props => {
-  //The routes that are defined in Drawer/ Side Bar,
+const DrawerButton = (props: {
+  onPress:
+    | (((event: GestureResponderEvent) => void) & (() => void))
+    | undefined;
+  iconName: ImageSourcePropType;
+  children:
+    | boolean
+    | React.ReactChild
+    | React.ReactFragment
+    | React.ReactPortal
+    | null
+    | undefined;
+}) => {
   return (
     <TouchableOpacity style={styles.button} onPress={props.onPress}>
       {props?.iconName && (
