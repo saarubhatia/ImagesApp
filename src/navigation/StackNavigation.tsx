@@ -8,7 +8,9 @@ import IndividualImageScreen from '../screens/IndividualImageScreen';
 
 const Stack = createNativeStackNavigator();
 
-const StackNavigation = props => {
+const StackNavigation = (
+  props: JSX.IntrinsicAttributes & {navigation: any},
+) => {
   return (
     <Stack.Navigator
       screenOptions={{

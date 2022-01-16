@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import StackNavigation from './StackNavigation';
@@ -16,7 +16,5 @@ const DrawerNavigation = () => {
     </Drawer.Navigator>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default DrawerNavigation;

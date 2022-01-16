@@ -86,7 +86,7 @@ const HomeScreen = (props: {navigation: any}) => {
         contentContainerStyle={{flexGrow: 1}}
         onEndReachedThreshold={1}
         onEndReached={loadMoreRandomData}
-        initialNumToRender={20}
+        initialNumToRender={10}
       />
     </SafeAreaView>
   );
@@ -106,22 +106,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#e1e4e8',
     width: 125,
     height: 120,
-  },
-  searchContainer: {
-    flexDirection: 'row',
-
-    justifyContent: 'center',
-    width: '100%',
-    alignItems: 'center',
-    margin: 8,
-  },
-  searchButton: {
-    height: 45,
-    width: 60,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#e1e4e8',
-    // borderRadius: 20,
   },
 });
 export default HomeScreen;
